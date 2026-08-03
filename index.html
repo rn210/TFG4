@@ -242,6 +242,63 @@
     margin-top:14px;
   }
 
+  /* ---------- QUIZ QUESTIONS ---------- */
+  .quiz-section{
+    margin-top:14px;
+    border-top:1px solid rgba(42,35,24,0.12);
+    padding-top:13px;
+  }
+  .quiz-title{
+    font-size:.78rem;
+    font-weight:700;
+    color:#8b7d5e;
+    text-transform:uppercase;
+    letter-spacing:.1em;
+    margin-bottom:9px;
+  }
+  .quiz-q{
+    background:rgba(255,255,255,0.55);
+    border:1px solid rgba(42,35,24,0.15);
+    border-radius:8px;
+    padding:11px 14px;
+    margin-bottom:7px;
+    cursor:pointer;
+    font-size:.92rem;
+    transition:.15s background;
+    user-select:none;
+  }
+  .quiz-q:hover{ background:rgba(255,255,255,0.8); }
+  .quiz-q .q-text{ color:var(--ink); font-weight:500; display:flex; justify-content:space-between; align-items:flex-start; gap:8px; }
+  .quiz-q .q-arrow{ flex-shrink:0; font-size:.75rem; color:#8b7d5e; margin-top:2px; }
+  .quiz-a{
+    margin-top:9px;
+    font-size:.88rem;
+    color:#2e5c3e;
+    border-top:1px solid rgba(42,35,24,0.1);
+    padding-top:8px;
+    display:none;
+    line-height:1.6;
+    font-weight:400;
+  }
+  .quiz-q.open .quiz-a{ display:block; }
+
+  /* ---------- WHY BOX ---------- */
+  .why-box{
+    margin-top:10px;
+    background:rgba(232,163,61,0.10);
+    border:1px solid rgba(232,163,61,0.32);
+    border-radius:8px;
+    padding:13px 16px;
+    font-size:.92rem;
+    animation: fadeSlide .4s ease;
+    line-height:1.55;
+  }
+  .why-label{
+    font-weight:700;
+    color:var(--marigold);
+    margin-right:6px;
+  }
+
   /* ---------- STOCK GAME ---------- */
   .news-box{
     background:rgba(232,163,61,0.08);
@@ -273,6 +330,32 @@
   }
   .explain-card p{ margin:0 0 14px; }
   .explain-card p:last-child{ margin-bottom:0; }
+  .key-points{
+    max-width:760px;
+    margin-bottom:16px;
+    padding:18px 24px;
+    background:rgba(232,163,61,0.07);
+    border:1px solid rgba(232,163,61,0.22);
+    border-radius:14px;
+    list-style:none;
+  }
+  .key-points li{
+    padding:6px 0 6px 22px;
+    position:relative;
+    font-size:.97rem;
+    color:var(--paper);
+    line-height:1.5;
+    border-bottom:1px solid rgba(241,233,216,0.08);
+  }
+  .key-points li:last-child{ border-bottom:none; }
+  .key-points li::before{
+    content:"▸";
+    position:absolute;
+    left:0;
+    color:var(--marigold);
+    font-size:.85rem;
+    top:8px;
+  }
 
   footer{
     text-align:center;
@@ -358,7 +441,6 @@
 <header class="hero">
 <div class="sticker-field"><div style="position:absolute; right:26px; top:6%; width:120px; height:84%;border:3px solid var(--teal); border-radius:2px; z-index:1; opacity:0.85;"></div><div class="sticker" style="position:absolute; right:0px; top:3.0%; width:105px; height:82px;transform:rotate(-4deg); z-index:2;"><img src="data:image/webp;base64,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" alt=""></div><div class="sticker" style="position:absolute; right:34px; top:28.0%; width:100px; height:90px;transform:rotate(-11deg); z-index:3;"><img src="data:image/webp;base64,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" alt=""></div><div class="sticker" style="position:absolute; right:0px; top:53.0%; width:119px; height:99px;transform:rotate(-11deg); z-index:4;"><img src="data:image/webp;base64,UklGRvoTAABXRUJQVlA4IO4TAABwRgCdASrIAIIAPnkylUckoqIhLTasKJAPCUiO5A5AH/gOo/D353z1sB/p+KvN5D23E+5xeajxV/T+Fvkv+YZ9eUvsw1IPlv5GxsvoDxV+JmoF7a/0/iH7Jm2PoBe3P0j/df4P1V/mvMT7M+wB+sP/Q8rXwffOPYF/n3+S9E7RE+jf6r2E/5v/fv17OTo28PoD9A3SEH//9N6e9+TYaXjVfQr/TheUC0bnPvZM0W5OToT/3Gi3/xGEsaQpnqAwdMtkw5m2nJ0cLJ0xFOf6KXLKcX0C43nqBCJVN6IIO3KZMTiAgGvAwiy/TcYqpaXbhJ9xAP+EO6pcIP2iKiUCDnKQ/cC0X62PWM12GxZFH5sqg7x9zKCTwfQZIZsTmeut+u62+YHksReZgU2Avwbsfdb7NM/ZygUMNThLF13YuiG+NFLzviJ3F8fIk6Yz9v2TSLceZtVwIf+vKXF/A/9SNffwNlv8td5CplMLlbBgoaGqR2Wikx3VTHQOVc7BR25pPnv1WsoX4+Wz34SzYeIWJN4hzZFGiDS1OT/HtxpoMF0xyQXgOcYdlWosJ7TVQ03wyoiD0NTJpIbqcT46yJEeEFP5/ld2ipxwttf1kRfH+/0m+IMm/3cHUFvlDFTzfkBz0y0kH0/900jaG/pIr4df3ZMZb3z4HbUHmwxTRLve2AE1vNbozZHGpcPQNcUptz2HG4ORYp1+nyomOWX//9pyeCdM/h/9ZT5+DQT8Fx2wIyxXP7uSkd222h3jOanjAAD2zmMHA369j2u4fOc8DCrOdftyUXu2BzAqkrYie7zRImvniS3+UTqrtNmxVi804CISdpBrczMNlRoNzy//KpHl/Omd+GfU+KNsK44gf3bu//Lvm+zPzRBQy45HIpFlcXxoIy0RY9SetZwC7ySW9kGZW9+71scu8lZb+K616JyqJsY9R8jdFOz0d/asRISGos9qQ1rHMNq0HpxQIigHkUVfiTRW7q5JZg3j0l6TVhj6rSTlKNVUVr4PFGXSOTefrm3ENAfbDfXa9N3pjaNuaVgMoVnX0QUx+fLKTjeWQP1kUPXf6cF3krr74mTF5hIg1MDZzhYSpDzu4tNKdWlL6oRjTAocgcu/ole9Ot9pjqaRTekGj7Yd1+85FLsj2VApkNvDL4sDZfLulJKF9bGCTtBUii4ZrbI/31MC2zdKtOTE/Os/3jdvcEKxoiVKODAxlKyqiFh8SbRbzd5Ux27Oj1kbUJN/OKIW5UC/6pTdnC81CmuJr5AbHvcWjrK3oVYaDL2I+IJ8yTv42n6HmlfdhuL3DN44WtOJVbByTvTmiC3WJPRxYKtFv2V9Kmog77G8JCRC1QnQaAn8YVt/mRFfjl1z5Z5HaNSWEUqv/fCe/vTpov7hfZHAwnDPzD9PaopVuu+HEUXUrabX3BMEVynLFYbaaZ88sbyMEKl03M/yS6shn9yJOpalFjOqOONcLGN66lZcvJQdc4/2vOiBfARA8md0nZNLVu12G7iArEkbhOhzOSA4MBdVUX8wa5dSVvj++ugTPWZZNR/t+j/wXHn8ZOPkZST+0Pv/sVed8++Rn+cRtulKDD4jl9BL/VEBTLH4zmNKDAO5UHMAPX1e+Z4tw5/2wO3adhvY8fsZud2bXI1+P7RwIuvviLP2rV9+8iTNxTyy0BNd0N7tEnVtfz9OOBExRo+B/q23RrLsxciPyQhLQYfwrvZooLWw2pEyJUu2fCVOa10Lr21lJdxHTzGbyvcQUbRVGtkvU/G8w8Es4sOjJ9FCotR49qXSuwNrIIzvpIk9d0ugZVF7GT9E/rcdPbyYCN9+0DezyoGFBJwnERdCltoaPB4AnNCtDwGlipeLq3Fog3boBG8v/Abv4SGnVu6QVPagaL0MEJE+r7jvJx4v9k8IgLxl6sObjjRMvnrjTgIPXghXHUpTICLqEeFubnCXQZqs33kmk3CHtwJHfINbFMXEXlWX4wAkMZBB8YliPt/Fj5cqRMZuMIvuUp0iXsdU3DytN9zqo1X1E+/d20ABGwXZVvz+DS5Gnrz3MyfsKPSe8560Yx1vjYiGWvUAXET959csudVAn/25h56UbxpWmeOUcCAM9sgFhj0l8YCRzX9YhjGL4v8oHAAFRoo01IrflIX8Skph5sNPMD55CJScI5DIn7nGJ7r9Y8+kkXqoxvzGM0/0JD9/QJGLgrBES9rEsao1dxwZQVkzNi7U7zAMLNRB0ZnZGVkq0XZremnxz/E6d7V4Qb7X8uvyzw1NaR1NfTS2jBlsQTnN/8s96WNXBRXE34DtnDGkCOhD0wua+ZZ8UbfNju+iHs1+5wCOcGNdqP42CEY16t1ADqnWMvVyL4cfRZajWWQkCNnZ2Bvp+vwJh/swBr0BI4RpAYBz6pXG8qWHq80pV/JRYuTugGjFZiJALe1ImS2nGyddtALHVGaOEKXO7UsB3edGl9QUAlgwU2fL2wAzY9noeNIn2wQuDUpRdF4VceG090ZyhY2o5b5ngCWlrGn3fgMvwiIzSwEHCL6tRSOSfG83rgF1LJkYdIkaUWLbGVce7EoVFFHP4xqsWY+aLjSnpQJ9GhDyEBHuf/y27e8GOrHD/Rz7U3XzZgASGXj4BfKoYoKHnUEkOb7SLW/G8jwleMtsVPt9jX+JjvCrxkUu0DIkX+yLHWmejHDCafN1dH5GuYFNrtqvqAk2jL0+DXifDQUVInYk1Z5msioepZq3RAAgl983UyBFtngPiMJAGykdgVPueHTH4biy3ocFjPsxgEFrQXrDF/UZElQ0P8Zyfm6rKkdDXBwtoDn0GfHQHouaU9FS+hpnknzGBxcTQzS85YlLD8HTklNFIppVRjANLOIe/1o0Kd0NlRtDD0WX7X+9NIfAvm6wHXnRjgvfmOBghAVRA5ldarnot3fyP9P4oFquMAge+5vVTxV5R1oTLFdP2c9jl+C1CBJKtA6zx3mK66JGWuzAxevda0zDzwAnhvrgLZcTupB5k31JplwQNUzg3rii+VPm0gq3JPLNBGx113sB/Toup5B+QD+UEyST5OnWg09jvijk1reCzn0rrgOFYt+ONwQjXfX1f0N7nKsa/cCl2UCyw291Jm8E/w38Rx6FTACShXaKOmtLw6jzsUrxx9Bv8+TmuZczSM24GbIFtXG7FchpvuHfnLwKRp5fSiigg0r6LXQHDCORopjXadFuscxQlJDMpDPLL+Rkt9qbtuSgAv6joxhzQ9F2bsw2Q1DZOOCuPn4XoUZxwQBBJAX+j9DX1LyAwJ7w+ZGJQgaXdJPAXc5lVJ1JaqY9TNs462KWrfP38oHj/4m0Q91Tb/iXOwDGcdBU9ldmo44XK4aZAAh+Ml5UTg7qufG0poI7I1LZO37xk+6jdmxfrv9qhTAupH2wTkA1UpdvNmoFNE7eqwuE7ON+qHdY7JIQ+ebogDvizIIf7N1l9BVe7Age0sBFKTUZdJ+3YTXI3PspzAbM1r2LX1K21e3qi3F5j22MpfII0gm1I3srG0dVs4hOTguTWaci2siMgT8BvTztMQ/H5+5D0RNQqRhFHwhq9f9b/jhWHe9UCEB5JI1BuDJb9cm/hf64uHoJYPu8mxAvYU4e4tTXjdRfXkaXB3PKu4Mf6ldTQx8uMlFMcHIEAjtQ9ozaaxcoF4l1ftIwrJWT9oAkNXtoQhahNYnlEm0YTFopSijG7OgGNo2Fad9GBV07KPnnd6N515TjApMqf+1Gp3Wkr7IY1GBGDCIOiy9J+RM8kL4pxM+E+AJQ3A0F5OdTsATB5Pa1SMslUolLmkqnpB4hOpWspRtIBkER4QSYbTClzv4NKIW5sCVjV3pZDiyRQSHy5fLAggDfguaB9dMJdP9IuLaeEcFwUbWR9waio/38fXHMjl3gnK11pPAFUozvp9oKWkOIoV0V61vRsK7DM8C/zxK3MuUX/ThMaZsboDlpvEmLMs7G6+Jf7bm/T8d7eZLmvcGjx0fC+TbwO9Zvi/VspM9MTeE4d+vYh3pVz29aaUwQyLXyFKNH3qO0l4rGB260XZI5hYZKC0yaaVo49nj5twYoqZQVVlIagN7bsxCr2nlRKu8LnrFgMtbvVAto5R+I/v4Mr7rFuxKLFRFIz250Dy4YC0aER6UVyjVSN5e8yNDyvt1z5IEFPIDW2imdQhtDvRwupJDBJpumS6TQOPXDorYnuInIDLYhy5wN2jaKYGc2sl8IP4yU5sXEBYAa81mEyagkhSoe21i74DOkZhi1wKZckuClJim983IaPpJ67NHP+nMV7y6GsK96TkvgP3QOT64gdBBEfSJeegOZdG9IYGYLV9O2TgNyN6UJXhuSYku3DyF0qKaekr1bvTS351wF/SqGs9cQN/w3ca02ubPK9rqgMeM7nuLypohrSZb+3R6ygu/F6+xRuj0/Ztlp1MCDW0jtTHR8eJuDOFaS87CDRktVjxXllgg7H7o3Z1157c/L2qBe28rwlx+LRw+V+3OGmmQXGjmeX6oRiD8UrzFobrO4Ga7tTgXnJ14NOOgolQB8NbndFhXW/XG82jiGwm3OekmECelslddEjAS6uxLtUdsW0fThY27eO3WkESgtSI2sf3aS3s637iPSITY3gv/yeUR89F3v7gJQusQ/3u3W53l1/mEf4/yTeCOeo9E25OeZSmcz7RdN33Ef1CCOu2I44cLWMvkhHu3SaijvumdM/A/SIFLUs+0KRwEKA/X4id5ML75XcTgRHnTZoUfueZR8aW4CU14e/EbADL/3tuNKIG+yAo7hzyC+y1qKr9ID7p8+Go33o5md4+08QKW4naKlgNsaRCo3f9cHJNeBHbTdzz2ZRn6QH+OFH253/JweVujkqifOsspuP6byY8dEitgipwKtq0poH08BYV6PLA495YqgaKH05ODeCWQ9ceg0mzgaIkqLTae+Pq05mxpNmVoEIamny2chtU8NcIbbgNBStrYRJf7zlmSs+y6D9wly4++CgZESDzJ4bCYoBW+VGpa+MxNcyUaXMGkCLu7QLdTBGSETV2gXBbAjp0P8YvTq/vGVuPGxBCScim08J2h83aa57DH/I0I98oocflzJstHUPm2Xb8vT/SfrReNzJyEvJJt7pbUsymcatqCEgqM60ss/VvqYotBXZc3MNTQnag+f8018H9ELFUlBn1gtWnQ65TQ8vbas//94Bc0v9oE47zFH8zZUmN9/t6HWak3VDeqKMPUV/4mCgHTfy0hSAk6OB4+/9F84NmjlAS2b6qdYp/bvL/zkmcdGkemkz9n0IzBJ8QMyNN9Xi6sFdiE3+mNQSxsysz5KoUPZKQmHMTyls8mM2UQVEx5KwvELpHKYnCxCr1HWS06mT7azMNYoIbaLR0uVU3kB0sodUZLLYfTXvRwRWxmk9pJt+rYwlUSJpTQDqwr9fCvWTuaQgYuTxSqcvRLOONtbqQUzLTNyaTTLBoyBu6HR/+VehNY0Zd/fkselqelZkLUtxD9MLQ4ndU6+j2/BLeIkM665hub43saoXgjhrQTf5/UV2mPSvBWXvmYfI6H/thflyY0Luv5NuXO0Qc++JiWiLofKrrxIoP9jxFJlhJ0A/l3iAUYBq6mneNY0z5IqrCS67Z/CEYf/T8lgAivtOk0StEhb7AsagZEjd8gWS4qvDQ58/iGgm9fOOyNxjsYx2RkWvuDMp9SAxVnwJ1YDbWqZTLU0/GqUydCy1qIIqEJfYs4Nllr4aAiuHjmJ3WrJd/EMxt4ZrBu1C1N9AtZ7CtPfynIzO3Uy7Q68ZMHhCZICEFW9kSZBwu0A1exsg4jxzZtipEyTajAb2kAfQiQPlwu9qxSeciIVIiKak1MhFOk2e6oskiQDdPMjwyFqs4WhF8Cl1Q1BOy/LVo5Ie9TVEik/ACjbTyGJ79zWC2/Ej65LCXKY+iTosWWjX/4Mv3MOHuzSQ1MrM56kzJQsWfU7oQCLePyJQFkltmlUrkcn/ZdBPPETuTIqrKPnmDoae71suH8Hq982PA1TVm4yGtEZIAyUr86Ctx8rDhZ/mXpwqCZXZu3qodzpwBLRBZrshrIrPKKT61Ku711TafWfX7sJZJPN0uxScvAQuoTmxF/mLWI51HTE6QxkUBarf7G/JTRNa8kvseXt1jXyywPhbSOOl+NVDLHXJZ8VGCy1vdSbeLZf2PzmaRcPI2XX+fyft2IsrbCwZglkuuUSCXpjIFByM04+UsJh5C7ow4bvNUN/vm5mNjtIqgHOQGo6uHY+FgAgzAe5xE8Vn88ncLjv15pRbWCn7qvg7Hubo6JB1o3HbPbMPlJLgIfrAljSiP5dHpuF+1xyfUSQyILZwk7Q9FquymuDgZ8dFSIGkxJa/qc0R2uwngb2O0tuuN7Bq3fHw5Izaz5R/pD6G7USlYQl1RMe5L7LGMF7czfFbBgP7UP1Lv0xVEz3FVizc9TAZpDUoc5bYcx0QKOCedkrRD1lOoZXxY45it7+7/IkdD4cpnsQaZ3NLY6+kJRhg1bcbIm5uTRR3WU07q5fugHmMiSLRBeWjDAL8o4lmZrXVICr9gy5cKrLRGOYEWWhMx6yA5danevyxFFpBlv0Kd0plArWwuRb69vkFompspC4314YifsnBWdQKgSCb/MK1dTPm+D6063wUDSjwpK0sAyfBx85lOS2tvhbGHtgY9ZcweywNFazM6QI9WOWki8oiOsNaU7YidFQbOtfDWP/OyKb3vBe2sApSwJlPGViAifidQAAeeP4BgWmSD+0AisCYUcnrLtFCdru9jlugOQg11hrVFCXdpgT1DvmI19jvr9QJMvEAPhVd1NxV7HAmIoZdxKLyDAAGgR4wFWNNQAAAA==" alt=""></div><div class="sticker" style="position:absolute; right:34px; top:78.0%; width:109px; height:75px;transform:rotate(7deg); z-index:5;"><img src="data:image/webp;base64,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" alt=""></div><div class="sticker" style="position:absolute; right:0px; top:103.0%; width:122px; height:85px;transform:rotate(4deg); z-index:6;"><img src="data:image/webp;base64,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" alt=""></div></div>
 <div class="hero-content">
-  <div class="eyebrow">Two Games</div>
   <h1>Three Games About Money</h1>
   <p class="intro-line">This website is designed to help you understand basic concepts of businesses and finance by letting you play simulations of real life scenarios.</p>
   <p>Play these games to see what happens with different money choices. Each choice has a result.</p>
@@ -380,6 +462,14 @@
       <h2>Daily Choices</h2>
       <p>This is a made-up story about a worker named Meena. She has a small amount of money for the week. Each day, you choose what Meena should do. See what happens after 5 days.</p>
     </div>
+
+    <ul class="key-points">
+      <li>You learn to manage daily money and save cash.</li>
+      <li>You learn how to handle surprise bills.</li>
+      <li>Needs are things like food and a place to live.</li>
+      <li>Wants are extra things like games and toys.</li>
+      <li>Emergency funds keep your money safe when bad things happen.</li>
+    </ul>
 
     <div class="passbook">
       <div class="stat-row">
@@ -420,6 +510,14 @@
       <h2>Corner Stall</h2>
       <p>This is a made-up story about a small food stall run by a seller named Raju. Each morning, choose how much food he should make. Food costs ₹5 to make. It sells for ₹12. Food that is not sold is wasted. The stall costs ₹30 each day to run. Play for 10 days and see how much money is left at the end.</p>
     </div>
+
+    <ul class="key-points">
+      <li>You run your own small shop.</li>
+      <li>You make choices to keep your shop open.</li>
+      <li>Sales money helps you pay for rent and supplies.</li>
+      <li>Profit is the money you keep after you pay all bills.</li>
+      <li>You must keep extra cash to buy supplies for new sales.</li>
+    </ul>
 
     <div class="passbook">
       <div class="stat-row">
@@ -467,14 +565,13 @@
       <p>Learn what it means to own a small piece of a business — and how your money can grow with it.</p>
     </div>
 
-    <!-- Explanation -->
-    <div class="explain-card">
-      <p>Imagine your friend wants to open a small samosa shop in your neighborhood. They need money to buy potatoes and oil, so you give them ₹100. Because you helped, you now own a small piece of their shop.</p>
-      <p>If the shop sells many samosas and becomes popular, your ₹100 piece might become worth ₹300. If you sell your piece to someone else, you keep the extra ₹200 as your profit. But if business is slow, your piece might become worth less.</p>
-      <p>This is called <strong>stock investing</strong>.</p>
-      <p>You can make money when the company grows and your piece becomes more valuable, or when the company shares its extra cash directly with you every few months.</p>
-      <p>You can start with 100 rupees on online trading platforms such as Zerodha. A good place to start is simply looking at companies that make products you and your friends use every single day.</p>
-    </div>
+    <ul class="key-points">
+      <li>A stock is a small piece of a real company.</li>
+      <li>You can buy and sell these small pieces.</li>
+      <li>News stories help you guess if prices go up or down.</li>
+      <li>Smart choices help your money grow over time.</li>
+      <li>You spread your money so you do not lose it all.</li>
+    </ul>
 
     <!-- Game card -->
     <div class="passbook" id="g3-game-area">
@@ -527,59 +624,157 @@
 <footer><span>These are simple games to help you think about money choices. They are not real financial advice.</span></footer>
 
 <script>
+/* ================= SHARED QUIZ HELPERS ================= */
+function renderQuiz(qs){
+  if(!qs || qs.length === 0) return "";
+  const items = qs.map(item => `
+    <div class="quiz-q" onclick="this.classList.toggle('open')">
+      <div class="q-text">
+        <span>🤔 ${item.q}</span>
+        <span class="q-arrow">▾</span>
+      </div>
+      <div class="quiz-a">✅ ${item.a}</div>
+    </div>`).join("");
+  return `<div class="quiz-section"><div class="quiz-title">Think about it — tap a question to see the answer</div>${items}</div>`;
+}
+
+function g1_getQuestions(c, state){
+  const qs = [];
+  if(c.cash < 0)
+    qs.push({ q:`Meena spent ₹${Math.abs(c.cash)}. What is this kind of spending called?`, a:`This is called an expense — money that goes out. Every expense reduces the money you have left.` });
+  else if(c.cash > 0)
+    qs.push({ q:`Meena earned ₹${c.cash} today. Where does this money come from?`, a:`It comes from her work. Money earned from working is called income. More work hours usually means more income.` });
+  if(c.health > 5)
+    qs.push({ q:"Why does good health help Meena earn more money?", a:"A healthy body lets you work every day without missing shifts. Sick days mean no pay. Health is like a tool you need to earn." });
+  else if(c.health < -5)
+    qs.push({ q:"Meena's health went down. What could happen if this continues?", a:"She may need to stop working. Less work means less money. This is why taking care of your health protects your income too." });
+  if(c.stability > 5)
+    qs.push({ q:"Things became more stable for Meena. Why does stability matter?", a:"When things are steady — home is safe, job is secure — you can plan ahead and save. Stability lets you think about tomorrow, not just today." });
+  else if(c.stability < -5)
+    qs.push({ q:"Meena's support went down. What does this mean for her future?", a:"It means her situation became less secure. Less stability makes it harder to plan ahead or save money for emergencies." });
+  if(c.debt)
+    qs.push({ q:"Meena must pay back ₹60 more than she borrowed. What is that extra money called?", a:"It is called interest. Moneylenders charge interest as their fee for lending money. Always borrow only what you know you can pay back." });
+  if(c.wageBoost)
+    qs.push({ q:"Why would a new skill help Meena earn more money later?", a:"Skills that are harder to learn are paid more. A person who can fix phones is rarer — so employers pay more for that skill." });
+  return qs.slice(0, 3);
+}
+
+function g2_getQuestions(ev, units, sold, profit, unitCost){
+  const qs = [];
+  const wasted = units - sold;
+  if(wasted > 8)
+    qs.push({ q:`Raju made ${units} plates but sold only ${sold}. What happened to the ${wasted} unsold plates?`, a:`They were wasted. Raju paid ₹${wasted * unitCost} to make them but earned nothing back. This is why matching how much you make to how much people want to buy is so important.` });
+  else if(sold === units)
+    qs.push({ q:"Raju sold every plate he made. Does that mean he earned as much as possible?", a:"Not quite — it means he could have made more plates and sold even more. Selling out is good, but it also means some customers left without buying." });
+  if(profit > 0)
+    qs.push({ q:`Raju made a profit of ₹${profit}. What exactly is profit?`, a:`Profit is the money left after paying all costs. Today: he earned ₹${sold * 12} from sales and spent ₹${sold * 12 - profit} on costs. What remained — ₹${profit} — is the profit.` });
+  else if(profit < 0)
+    qs.push({ q:`Raju lost ₹${Math.abs(profit)} today. How does a loss happen?`, a:`A loss happens when costs are more than earnings. Today his costs were higher than what he earned from selling plates. Every unsold plate made the loss bigger.` });
+  if(ev.key === "rain")
+    qs.push({ q:"Why did rain reduce Raju's sales, even though his food was the same?", a:"Rain kept customers away from the stall. Fewer customers = fewer sales. Businesses cannot control the weather, only how much food they choose to prepare for it." });
+  else if(ev.key === "festival")
+    qs.push({ q:"Why did a festival nearby help Raju earn more?", a:"The festival brought extra people near his stall. More people = more potential customers = more sales. This is why businesses near busy places usually earn more." });
+  else if(ev.key === "inspector")
+    qs.push({ q:"Why did the fine reduce profit, even though sales were the same?", a:"A fine is an extra cost added on top of normal costs. Same sales + more costs = less profit. Any extra cost — fine, repair, fee — cuts directly into your profit." });
+  else if(ev.key === "pricespike")
+    qs.push({ q:"Ingredients cost more today. Why did that hurt profit even though the selling price stayed at ₹12?", a:`Each plate cost ₹${unitCost} to make instead of ₹5. But Raju still sold each for ₹12. More cost, same price = less profit per plate. This is called a squeeze on your margin.` });
+  return qs.slice(0, 3);
+}
+
+function g3_getQuestions(action, ev, oldPrice, newPrice, shares, cash){
+  const qs = [];
+  const up = newPrice > oldPrice;
+  const down = newPrice < oldPrice;
+  if(ev.type === "good" && up)
+    qs.push({ q:"Why did good news make the share price go up?", a:"More customers means the shop earns more money. A shop that earns more is worth more — so people pay more for a piece of it. This is called demand pushing the price up." });
+  else if(ev.type === "bad" && down)
+    qs.push({ q:"Why did bad news make the share price fall?", a:"Fewer customers means the shop earns less. A shop earning less is worth less — so people are not willing to pay as much for a share of it." });
+  else
+    qs.push({ q:"What makes a share price go up or down?", a:"Share prices move based on how well people think the business is doing. Good news raises the price. Bad news lowers it. Prices reflect what people believe about the future." });
+  if(action === 'buy' && down)
+    qs.push({ q:"You bought shares and then the price fell. What are your options now?", a:"You can hold and wait — prices go up and down all the time. If you believe the shop will do well again, waiting is often smarter than selling at a loss. Patience matters in investing." });
+  else if(action === 'buy' && up)
+    qs.push({ q:"You bought and the price went up. When is the right time to sell?", a:"There is no perfect answer. Some sell quickly for a small profit. Others wait for a bigger gain. The risk of waiting: the price could fall. This uncertainty is part of investing." });
+  else if(action === 'sell' && down)
+    qs.push({ q:"You sold just before the price fell. How did watching the news help here?", a:"The news suggested bad things for the business. Selling before bad news hits protects your money. This is why investors always watch for news before making decisions." });
+  else if(action === 'sell' && up)
+    qs.push({ q:"You sold, but then the price kept rising. What does this tell you?", a:"Selling too early can mean missing out on more profit. This is called opportunity cost — the money you could have made but did not because you acted too soon." });
+  else if(action === 'hold')
+    qs.push({ q:"You chose to hold and wait. What are the risks of holding too long?", a:"If the price keeps falling, your shares lose value. If you sell too early, you miss a price rise. Investing is always a guess about what will happen next — there is no risk-free choice." });
+  if(shares > 0)
+    qs.push({ q:`You own ${shares} share${shares > 1 ? 's' : ''}. What does it mean to own a share?`, a:`It means you own a tiny piece of the samosa shop. If the shop earns more, your piece becomes more valuable. You are a part-owner — the shop's success is your success too.` });
+  if(cash < 60)
+    qs.push({ q:"You have very little cash left. Is that risky in investing?", a:"Yes. If the price drops, you cannot buy more shares at a low price. Keeping some cash is called a safety buffer — it gives you choices when prices change." });
+  return qs.slice(0, 3);
+}
+
 /* ================= GAME 1: THE WEEK ================= */
 const g1_days = [
   {
     text: "Meena feels unwell this morning. She has ₹150 for this week.",
     choices: [
       { tag:"Buy medicine", label:"Meena buys medicine. It costs ₹40.", cash:-40, health:15, stability:5,
-        outcome:"The medicine helps. Meena feels better by evening." },
+        outcome:"The medicine helps. Meena feels better by evening.",
+        why:"Spending a little money on health now helps you keep working. A sick person earns nothing." },
       { tag:"Rest today", label:"Meena stays home and rests today.", cash:-80, health:10, stability:10,
-        outcome:"Meena loses one day of pay. But she gets good rest." },
+        outcome:"Meena loses one day of pay. But she gets good rest.",
+        why:"Rest costs you one day of pay today, but your body recovers faster, so you can earn again sooner." },
       { tag:"Work anyway", label:"Meena goes to work anyway.", cash:80, health:-15, stability:-10,
-        outcome:"Meena earns money today. But she feels worse, and it takes longer to get well." }
+        outcome:"Meena earns money today. But she feels worse, and it takes longer to get well.",
+        why:"Pushing through sickness earns money now, but a weaker body takes longer to heal and may cost more later." }
     ]
   },
   {
     text: "Meena's landlord wants this month's rent early. It is ₹300.",
     choices: [
       { tag:"Pay now", label:"Meena pays the full rent now.", cash:-300, health:0, stability:15,
-        outcome:"The rent is paid. Now Meena has no extra money if something goes wrong this week." },
+        outcome:"The rent is paid. Now Meena has no extra money if something goes wrong this week.",
+        why:"Paying on time keeps you safe from losing your home, but it leaves no money for surprises." },
       { tag:"Borrow money", label:"Meena borrows ₹300 from a moneylender.", cash:300, health:0, stability:-5, debt:60,
-        outcome:"Meena gets the money today. But she must pay back ₹360 later — that is ₹60 more than she borrowed." },
+        outcome:"Meena gets the money today. But she must pay back ₹360 later — that is ₹60 more than she borrowed.",
+        why:"Borrowing costs extra money called interest. You always pay back more than you took — that is how moneylenders earn." },
       { tag:"Ask for time", label:"Meena asks her landlord for more time.", cash:0, health:0, stability:-10,
-        outcome:"He says yes, but he is not happy. Meena will owe more next month." }
+        outcome:"He says yes, but he is not happy. Meena will owe more next month.",
+        why:"Delaying a payment can feel safe, but it means you owe more later and the other person trusts you less." }
     ]
   },
   {
     text: "Meena can join a 3-day training. It does not pay, but she would learn a new skill.",
     choices: [
       { tag:"Join training", label:"Meena joins the training.", cash:-180, health:-5, stability:5, wageBoost:true,
-        outcome:"The training is tiring. But now Meena knows how to fix phones, and this work pays more." },
+        outcome:"The training is tiring. But now Meena knows how to fix phones, and this work pays more.",
+        why:"Learning a new skill is like planting a seed — it costs time and energy now, but helps you earn more money in the future." },
       { tag:"Keep working", label:"Meena skips the training and keeps her normal job.", cash:180, health:0, stability:0,
-        outcome:"Meena earns her normal pay. Nothing changes this week." }
+        outcome:"Meena earns her normal pay. Nothing changes this week.",
+        why:"Earning money now is good, but staying in the same job means your skills and pay stay the same too." }
     ]
   },
   {
     text: "Meena's bicycle has a flat tyre. She needs it to get to work.",
     choices: [
       { tag:"Fix it well", label:"Meena pays for a good repair. It costs ₹60.", cash:-60, health:0, stability:10,
-        outcome:"The bicycle is fixed well. It should not break again soon." },
+        outcome:"The bicycle is fixed well. It should not break again soon.",
+        why:"A good repair costs more today but lasts longer — you spend less total over time. This is called value for money." },
       { tag:"Cheap fix", label:"Meena does a cheap, quick fix. It costs ₹15.", cash:-15, health:-5, stability:-5,
-        outcome:"Meena saves money. But the bicycle is not safe, and it may break again." },
+        outcome:"Meena saves money. But the bicycle is not safe, and it may break again.",
+        why:"Spending less now can mean spending more later when the cheap fix fails. Low cost does not always mean best choice." },
       { tag:"Walk instead", label:"Meena walks to work instead, to save money.", cash:0, health:-10, stability:-5,
-        outcome:"Meena saves money. But she is tired every day, and she arrives late." }
+        outcome:"Meena saves money. But she is tired every day, and she arrives late.",
+        why:"Saving on repairs is smart, but being tired and late can put your job at risk — and losing a job costs far more." }
     ]
   },
   {
     text: "A local skills class costs ₹120 this month. It is due tomorrow.",
     choices: [
       { tag:"Pay in full", label:"Meena pays the full amount and joins the class.", cash:-120, health:0, stability:15,
-        outcome:"Meena joins the class with no problem. She learns skills that help her later." },
+        outcome:"Meena joins the class with no problem. She learns skills that help her later.",
+        why:"Paying for education is an investment — the knowledge stays with you forever and helps you earn more money." },
       { tag:"Pay half", label:"Meena pays half now and asks for more time on the rest.", cash:-60, health:0, stability:5,
-        outcome:"Meena joins the class for now. She will still owe the rest later." },
+        outcome:"Meena joins the class for now. She will still owe the rest later.",
+        why:"Paying in parts lets you join now, but you still owe the rest — debt does not disappear, it just waits." },
       { tag:"Skip it", label:"Meena does not pay this time.", cash:0, health:0, stability:-20,
-        outcome:"Meena misses the class. It will be hard to catch up later." }
+        outcome:"Meena misses the class. It will be hard to catch up later.",
+        why:"Skipping learning saves money today, but your skills stay the same — and people who learn more often earn more." }
     ]
   }
 ];
@@ -638,8 +833,10 @@ function g1_choose(idx){
   document.getElementById('g1-outcome').innerHTML = `
     <div class="outcome-box">
       ${c.outcome}
-      <div><button class="continue-btn" onclick="g1_next()">Next</button></div>
-    </div>`;
+    </div>
+    <div class="why-box"><span class="why-label">💡 Why?</span>${c.why}</div>
+    ${renderQuiz(g1_getQuestions(c, g1_state))}
+    <div><button class="continue-btn" style="margin-top:14px;" onclick="g1_next()">Next</button></div>`;
 }
 
 function g1_next(){
@@ -739,12 +936,25 @@ function g2_runDay(){
   document.getElementById('g2-profit').textContent = (profit >= 0 ? "+₹" : "-₹") + Math.abs(profit);
   document.getElementById('g2-profit').style.color = profit >= 0 ? "#2c6b4e" : "#8f3a2c";
 
+  // Generate "why" explanation for Game 2
+  let g2why = "";
+  if(ev.key === "rain") g2why = "Bad weather kept customers away. Fewer customers means fewer sales, so money earned goes down.";
+  else if(ev.key === "festival") g2why = "A festival brought extra people nearby. More customers means more sales and more money earned.";
+  else if(ev.key === "inspector") g2why = "A fine is an extra cost that has nothing to do with sales — it cuts straight into your profit.";
+  else if(ev.key === "pricespike") g2why = "When the cost of making each plate goes up, your profit per plate goes down — even if you sell the same number.";
+  else if(sold < units && units - sold > 10) g2why = "Unsold food is wasted money — you paid to make it but got nothing back. Making less can sometimes earn more.";
+  else if(sold === units) g2why = "Selling everything means demand was higher than what you made. You could have earned more by making extra plates.";
+  else if(profit > 0) g2why = "Profit happens when you earn more from sales than you spend on costs. More sales and lower costs = more profit.";
+  else g2why = "A loss happens when costs are higher than earnings. Every plate that is not sold is money wasted on ingredients.";
+
   document.getElementById('g2-result').innerHTML = `
     <div class="outcome-box">
       Raju made ${units} plates. Each one cost ₹${unitCost} to make. He sold ${sold} plates at ₹12 each.<br>
       He earned ₹${revenue}. He spent ₹${ingredientCost} on food and ₹${fixedCost} on the stall${eventCost ? ` and ₹${eventCost} on a fine` : ""}.<br>
       ${sold < units ? `${units - sold} plates were not sold. They were wasted.` : `He sold all his food today. He could have made more.`}
     </div>
+    <div class="why-box"><span class="why-label">💡 Why?</span>${g2why}</div>
+    ${renderQuiz(g2_getQuestions(ev, units, sold, profit, unitCost))}
   `;
 
   g2_drawChart();
@@ -915,6 +1125,32 @@ function g3_choose(action){
   g3_drawChart();
   document.getElementById('g3-choices').innerHTML = "";
 
+  // Generate "why" explanation for Game 3
+  const priceWentUp = g3.price > oldPrice;
+  const priceWentDown = g3.price < oldPrice;
+  let g3why = "";
+  if(ev.type === "good" && priceWentUp)
+    g3why = "Good news means more people want to buy samosas. A popular shop is worth more, so its share price rises.";
+  else if(ev.type === "bad" && priceWentDown)
+    g3why = "Bad news means fewer customers and less money for the shop. A struggling shop is worth less, so its share price falls.";
+  else if(priceWentUp)
+    g3why = "More demand for the shop pushed the price up. When many people want something, its price goes higher.";
+  else if(priceWentDown)
+    g3why = "Less demand for the shop pushed the price down. When fewer people want something, its price goes lower.";
+  else
+    g3why = "Nothing big happened today, so the price barely moved. Calm days are common in investing.";
+
+  if(action === 'buy' && priceWentUp)
+    g3why += " You bought before the price rose — your shares are now worth more than you paid. That is how investors make profit.";
+  else if(action === 'buy' && priceWentDown)
+    g3why += " You bought just before the price fell — your shares are worth less now. This is the risk every investor takes.";
+  else if(action === 'sell' && priceWentUp)
+    g3why += " You sold just before the price went even higher. Holding a little longer might have earned more.";
+  else if(action === 'sell' && priceWentDown)
+    g3why += " You sold before the price dropped further — good timing! Selling early protected your money.";
+  else if(action === 'hold')
+    g3why += " Holding means you waited to see what happens next. Patience can pay off — or cost you. It depends on what comes next.";
+
   const isLast = g3.round >= 5;
   document.getElementById('g3-outcome').innerHTML = `
     <div class="outcome-box">
@@ -922,12 +1158,14 @@ function g3_choose(action){
       News: ${ev.text}<br>
       The share price ${priceDir}.<br>
       <strong>Your shares are worth ₹${g3.shares * g3.price}. Total value: ₹${g3_totalValue()}.</strong>
-      <div>
-        ${isLast
-          ? `<button class="continue-btn" onclick="g3_end()">See Results →</button>`
-          : `<button class="continue-btn" onclick="g3_next()">Next Round →</button>`
-        }
-      </div>
+    </div>
+    <div class="why-box"><span class="why-label">💡 Why?</span>${g3why}</div>
+    ${renderQuiz(g3_getQuestions(action, ev, oldPrice, g3.price, g3.shares, g3.cash))}
+    <div>
+      ${isLast
+        ? `<button class="continue-btn" style="margin-top:14px;" onclick="g3_end()">See Results →</button>`
+        : `<button class="continue-btn" style="margin-top:14px;" onclick="g3_next()">Next Round →</button>`
+      }
     </div>`;
 }
 
@@ -995,5 +1233,5 @@ function g3_reset(){
 g3_startRound();
 g3_drawChart();
 </script>
-</body>
+<script src="https://replit-cdn.com/replit-pill/replit-pill.global.js" data-repl-id="a9f41a68-ef25-48fd-90da-66ec0d397be5"></script></body>
 </html>
